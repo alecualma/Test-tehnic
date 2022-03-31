@@ -8,7 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
 public class PolitripSignUp {
-https://github.com/alecualma/QA-Automation/blob/bfacf7777f2aac0d177ae24a427279b350581531/Test%20tehnic
+
 	public static void main(String[] args) throws InterruptedException {
 		System.setProperty("webdriver.chrome.driver", "C:\\Selenium\\chromedriver_win32\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
@@ -16,11 +16,11 @@ https://github.com/alecualma/QA-Automation/blob/bfacf7777f2aac0d177ae24a427279b3
 		driver.manage().window().maximize();  
 		driver.findElement(By.xpath("//*[@id=\"cookiescript_accept\"]")).click();
 
-		driver.findElement(By.name("first-name")).sendKeys("Paul");
+		driver.findElement(By.name("first-name")).sendKeys("Paula");
 		Thread.sleep(1500);
-		driver.findElement(By.name("last-name")).sendKeys("Johnson");
+		driver.findElement(By.name("last-name")).sendKeys("Smith");
 		Thread.sleep(1500);
-		driver.findElement(By.name("email")).sendKeys("pauljohnson@email.com");
+		driver.findElement(By.name("email")).sendKeys("paulasmith@email.com");
 		Thread.sleep(1500);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("window.scrollBy(0,350)", "");
@@ -34,7 +34,7 @@ https://github.com/alecualma/QA-Automation/blob/bfacf7777f2aac0d177ae24a427279b3
 		Select select = new Select(dropdown);
 		
 		select.selectByValue("webSearch");
-		Thread.sleep(2000);
+		Thread.sleep(1500);
 		/*select.selectByValue("socialNetworks");
 		Thread.sleep(2000);
 		select.selectByValue("fromAFriend");
@@ -43,9 +43,15 @@ https://github.com/alecualma/QA-Automation/blob/bfacf7777f2aac0d177ae24a427279b3
 		Thread.sleep(2000);*/
 		
 		driver.findElement(By.xpath("//*[@id=\" qa_loader-button\"]")).click();
-		Thread.sleep(2000);
+		Thread.sleep(1500);
 
-		String expected_title = "Sign up | Politrip";
+		JavascriptExecutor jsc = (JavascriptExecutor) driver;
+		jsc.executeScript("window.scrollBy(0,350)", "");
+		
+		driver.findElement(By.xpath("//*[@id=\"qa_signup-participant\"]")).click();
+		Thread.sleep(1500);
+		
+		String expected_title = "Politrip";
 		String actual_title = driver.getTitle();
 		driver.close();
 		if(expected_title.equals(actual_title))
