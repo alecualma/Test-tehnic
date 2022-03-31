@@ -16,11 +16,11 @@ public class PolitripSignUp {
 		driver.manage().window().maximize();  
 		driver.findElement(By.xpath("//*[@id=\"cookiescript_accept\"]")).click();
 
-		driver.findElement(By.name("first-name")).sendKeys("Paula");
+		driver.findElement(By.name("first-name")).sendKeys("Aurora");
 		Thread.sleep(1500);
-		driver.findElement(By.name("last-name")).sendKeys("Smith");
+		driver.findElement(By.name("last-name")).sendKeys("Turner");
 		Thread.sleep(1500);
-		driver.findElement(By.name("email")).sendKeys("paulasmith@email.com");
+		driver.findElement(By.name("email")).sendKeys("auroraturner@email.com");
 		Thread.sleep(1500);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("window.scrollBy(0,350)", "");
